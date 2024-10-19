@@ -1,50 +1,28 @@
-.container {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
+/* Loader Container to center the spinner */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* Adjust based on your needs */
+  width: 100%;
+}
+
+/* Spinner style */
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1); /* Light outer border */
+  border-left-color: #007bff; /* Blue inner spinning border */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .data-table th, .data-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .data-table th {
-    background-color: #f2f2f2;
-  }
-  
-  .loader {
-    text-align: center;
-    padding: 20px;
-    font-style: italic;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .pagination button {
-    margin: 0 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .pagination button.active {
-    background-color: #007bff;
-    color: white;
-    border: none;
-  }
-  
-  .pagination-info {
-    text-align: center;
-    margin-top: 10px;
-  }
+}
