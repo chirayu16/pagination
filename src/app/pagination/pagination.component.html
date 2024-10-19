@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h2>Data Table with Pagination</h2>
     
     <div *ngIf="loading" class="loader">Loading...</div>
@@ -37,4 +37,49 @@
     <div class="pagination-info">
       Page {{ currentPage }} of {{ getTotalPages() }}
     </div>
+  </div> -->
+
+  <div class="container">
+    <h2>Data Table with Pagination</h2>
+  
+    <div *ngIf="loading" class="loader-container">
+      <div class="spinner"></div>
+    </div>
+    
+  
+    <table *ngIf="!loading" class="data-table">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td>{{ item.id }}</td>
+          <td>{{ item.title }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination">
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+        Previous
+      </button>
+  
+      <ng-container *ngFor="let page of getPageNumbers()">
+        <button (click)="onPageChange(page)" [class.active]="currentPage === page">
+          {{ page }}
+        </button>
+      </ng-container>
+  
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === getTotalPages()">
+        Next
+      </button>
+    </div>
+  
+    <div class="pagination-info">
+      Page {{ currentPage }} of {{ getTotalPages() }}
+    </div>
   </div>
+  
